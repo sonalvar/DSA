@@ -56,19 +56,14 @@ class LinkedList:
         return True
 
     def pop_first(self):
-        pop_element = None
         if self.length == 0:
-            pass
-        elif self.length == 1:
-            pop_element = self.head
-            self.head = None
+            return None
+        pop_element = self.head
+        self.head = self.head.next
+        pop_element.next = None
+        self.length -= 1
+        if self.length == 0:
             self.tail = None
-            self.length = 0
-        else:
-            pop_element = self.head
-            self.head = self.head.next
-            pop_element.next = None
-            self.length -= 1
         return pop_element
 
 
